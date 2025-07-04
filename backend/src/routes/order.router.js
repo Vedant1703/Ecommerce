@@ -6,7 +6,7 @@ import { createOrder,
   updateOrderStatus,
   deleteOrder, } from '../controllers/order.controller.js';
 import { verifyJWT } from '../middlewares/auth.middleware.js';
-import requireRole from "../middlewares/requireRole.js";
+import requireRole from "../middlewares/requireRole.middleware.js";
 const router  = Router();
 
 router.route("createOrder").post(verifyJWT,requireRole("user"),createOrder);

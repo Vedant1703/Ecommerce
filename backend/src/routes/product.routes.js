@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { updateProduct,deleteProduct,getAllProducts,getProductById,createProduct } from '../controllers/product.controller.js';
 import {upload} from "../middlewares/multer.middleware.js"
 import { verifyJWT } from '../middlewares/auth.middleware.js';
-import requireRole from "../middlewares/requireRole.js";
+import requireRole from "../middlewares/requireRole.middleware.js";
 const router  = Router();
 
 
