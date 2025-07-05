@@ -1,21 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/HomePage";
-import LoginChoice from "./pages/LoginChoice";
-import AdminLogin from "./pages/AdminLogin";
-import UserLogin from "./pages/UserLogin";
+import Login from "./pages/Login"; // Unified login page
+import Signup from "./pages/Signup.jsx";
+
+// Optional: fallback 404 page
+const NotFound = () => (
+  <div className="flex justify-center items-center h-screen text-2xl font-bold text-red-500">
+    404 - Page Not Found
+  </div>
+);
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Home Page */}
         <Route path="/" element={<Home />} />
-        <Route path="/choose-login" element={<LoginChoice />} />
-        <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/user-login" element={<UserLogin />} />
+
+        {/* Single Login Page */}
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Catch-all */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

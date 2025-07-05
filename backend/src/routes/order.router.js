@@ -9,7 +9,7 @@ import { verifyJWT } from '../middlewares/auth.middleware.js';
 import requireRole from "../middlewares/requireRole.middleware.js";
 const router  = Router();
 
-router.route("createOrder").post(verifyJWT,requireRole("user"),createOrder);
+router.route("/createOrder").post(verifyJWT,requireRole("user"),createOrder);
 router.route("/").get(verifyJWT,requireRole("admin"),getAllOrders);
 router.route("/myorders").get(verifyJWT,requireRole("user"),getMyOrders);
 router.route("/:orderId").get(verifyJWT,requireRole("user","admin"),getOrderById);
